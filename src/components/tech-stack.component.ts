@@ -33,8 +33,9 @@ import { CommonModule } from '@angular/common';
                      } @else {
                         <img [src]="'https://cdn.simpleicons.org/' + tool.slug + '/334155'" 
                             [alt]="tool.name"
+                            width="32" height="32"
                             class="w-8 h-8 object-contain filter brightness-0 transition-all duration-300"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                      }
                    </div>
                    
@@ -57,8 +58,9 @@ import { CommonModule } from '@angular/common';
                      } @else {
                         <img [src]="'https://cdn.simpleicons.org/' + tool.slug + '/334155'" 
                             [alt]="tool.name"
+                            width="32" height="32"
                             class="w-8 h-8 object-contain filter brightness-0 transition-all duration-300"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                      }
                    </div>
                    <span class="text-xl font-mono font-bold tracking-tight text-black transition-colors uppercase">
@@ -84,8 +86,9 @@ import { CommonModule } from '@angular/common';
                      } @else {
                         <img [src]="'https://cdn.simpleicons.org/' + tool.slug + '/334155'" 
                             [alt]="tool.name"
+                            width="32" height="32"
                             class="w-8 h-8 object-contain filter brightness-0 transition-all duration-300"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                      }
                    </div>
                    
@@ -108,8 +111,9 @@ import { CommonModule } from '@angular/common';
                      } @else {
                         <img [src]="'https://cdn.simpleicons.org/' + tool.slug + '/334155'" 
                             [alt]="tool.name"
+                            width="32" height="32"
                             class="w-8 h-8 object-contain filter brightness-0 transition-all duration-300"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                      }
                    </div>
                    <span class="text-xl font-mono font-bold tracking-tight text-black transition-colors uppercase">

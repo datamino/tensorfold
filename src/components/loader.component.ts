@@ -81,20 +81,19 @@ export class LoaderComponent implements OnInit, OnDestroy {
   progress = signal(0);
   memory = signal(0);
   
-  private intervalId: any;
-  private timeouts: any[] = [];
+  private progressIntervalId: ReturnType<typeof setInterval> | null = null;
+  private memoryIntervalId: ReturnType<typeof setInterval> | null = null;
+  private timeouts: ReturnType<typeof setTimeout>[] = [];
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {
     // 1. Visual Progress Bar Simulation (Goes to 90% and waits)
-    // Slower increment to match the new longer wait time
-    const progressInterval = setInterval(() => {
+    this.progressIntervalId = setInterval(() => {
         if (this.progress() < 90) {
             this.progress.update(p => p + (Math.random() * 2));
         }
     }, 100);
-    this.timeouts.push(progressInterval); // Clean up later if needed, mostly self-stops at 90
 
     // 2. Text Sequence (Extended Timeline)
     const steps = [
@@ -111,13 +110,13 @@ export class LoaderComponent implements OnInit, OnDestroy {
         }, step.t));
     });
     
-    // 3. Memory counter effect
+    // 3. Memory counter effect (slower = less main-thread work)
     let mem = 0;
-    this.intervalId = setInterval(() => {
+    this.memoryIntervalId = setInterval(() => {
         mem += Math.floor(Math.random() * 120);
         this.memory.set(mem);
-        if (mem > 32000) clearInterval(this.intervalId);
-    }, 30);
+        if (mem > 32000 && this.memoryIntervalId) clearInterval(this.memoryIntervalId);
+    }, 80);
 
     // 4. MAIN LOADING LOGIC
     // We wait for TWO conditions:
@@ -125,19 +124,16 @@ export class LoaderComponent implements OnInit, OnDestroy {
     // B) Window 'load' event (ensures all images, scripts, styles are fully downloaded)
     
     if (isPlatformBrowser(this.platformId)) {
-        const minTimePromise = new Promise(resolve => setTimeout(resolve, 3500));
-        
-        const resourceLoadPromise = new Promise(resolve => {
-            if (document.readyState === 'complete') {
-                resolve(true);
-            } else {
-                window.addEventListener('load', () => resolve(true), { once: true });
-            }
+        const minTimePromise = new Promise<void>(r => setTimeout(r, 2200));
+        const maxTimePromise = new Promise<void>(r => setTimeout(r, 4000));
+        const resourceLoadPromise = new Promise<void>(r => {
+            if (document.readyState === 'complete') r();
+            else window.addEventListener('load', () => r(), { once: true });
         });
-
-        Promise.all([minTimePromise, resourceLoadPromise]).then(() => {
-            this.finishLoading();
-        });
+        Promise.race([
+            Promise.all([minTimePromise, resourceLoadPromise]),
+            maxTimePromise
+        ]).then(() => this.finishLoading());
     } else {
         // Fallback for non-browser environments
         setTimeout(() => this.finishLoading(), 3000);
@@ -145,21 +141,16 @@ export class LoaderComponent implements OnInit, OnDestroy {
   }
 
   finishLoading() {
-      // Snap progress to 100
       this.progress.set(100);
       this.loadingText.set('SYSTEM READY.');
-      
-      // Clear the progress interval if it's still running
-      if (this.intervalId) clearInterval(this.intervalId);
-
-      // Short delay to let user see "100%"
-      setTimeout(() => {
-          this.isActive.set(false);
-      }, 500);
+      if (this.progressIntervalId) { clearInterval(this.progressIntervalId); this.progressIntervalId = null; }
+      if (this.memoryIntervalId) { clearInterval(this.memoryIntervalId); this.memoryIntervalId = null; }
+      setTimeout(() => this.isActive.set(false), 500);
   }
 
   ngOnDestroy() {
-    if (this.intervalId) clearInterval(this.intervalId);
+    if (this.progressIntervalId) clearInterval(this.progressIntervalId);
+    if (this.memoryIntervalId) clearInterval(this.memoryIntervalId);
     this.timeouts.forEach(t => clearTimeout(t));
   }
 }
