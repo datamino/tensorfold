@@ -1,0 +1,25 @@
+
+<app-loader></app-loader>
+
+<div class="relative w-full min-h-screen text-slate-800 selection:bg-cyan-200 selection:text-cyan-900">
+  <!-- Living Background Layer -->
+  <app-background-flow class="fixed inset-0 z-0 pointer-events-none"></app-background-flow>
+
+  <!-- Navigation -->
+  <app-nav-menu class="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none"></app-nav-menu>
+
+  <!-- Main Content -->
+  <main class="relative z-10 flex flex-col gap-0 pb-0">
+    <app-hero></app-hero>
+    <app-services id="services"></app-services>
+    <app-case-studies id="casestudies"></app-case-studies>
+    <app-tech-stack></app-tech-stack>
+    <app-research-lab id="research"></app-research-lab>
+    <app-careers id="careers"></app-careers>
+    <app-blog id="insights"></app-blog>
+    <app-about id="about"></app-about>
+    <app-contact id="contact"></app-contact>
+  </main>
+  
+  <app-footer></app-footer>
+</div>
