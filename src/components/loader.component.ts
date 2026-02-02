@@ -118,25 +118,25 @@ export class LoaderComponent implements OnInit, OnDestroy {
         if (mem > 32000 && this.memoryIntervalId) clearInterval(this.memoryIntervalId);
     }, 80);
 
-    // 4. MAIN LOADING LOGIC
-    // We wait for TWO conditions:
-    // A) Minimum time of 3.5s (to ensure cinematic effect plays out)
-    // B) Window 'load' event (ensures all images, scripts, styles are fully downloaded)
-    
+    // 4. LOADING LOGIC: fixed time while everything loads in background
+    // All sections + images are already in DOM and loading. We show loader for 3.5s
+    // so the page has time to load; then hide it so the site appears ready and smooth.
     if (isPlatformBrowser(this.platformId)) {
-        const minTimePromise = new Promise<void>(r => setTimeout(r, 2200));
-        const maxTimePromise = new Promise<void>(r => setTimeout(r, 4000));
-        const resourceLoadPromise = new Promise<void>(r => {
+        const minTime = 3500;
+        const maxTime = 5500;
+        const minPromise = new Promise<void>(r => setTimeout(r, minTime));
+        const maxPromise = new Promise<void>(r => setTimeout(r, maxTime));
+        const loadPromise = new Promise<void>(r => {
             if (document.readyState === 'complete') r();
             else window.addEventListener('load', () => r(), { once: true });
         });
+        // Hide when: (minTime elapsed AND window loaded) OR maxTime reached
         Promise.race([
-            Promise.all([minTimePromise, resourceLoadPromise]),
-            maxTimePromise
+            Promise.all([minPromise, loadPromise]),
+            maxPromise
         ]).then(() => this.finishLoading());
     } else {
-        // Fallback for non-browser environments
-        setTimeout(() => this.finishLoading(), 3000);
+        setTimeout(() => this.finishLoading(), 3500);
     }
   }
 

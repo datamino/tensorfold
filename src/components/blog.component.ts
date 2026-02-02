@@ -12,7 +12,7 @@ import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
         @for (post of posts(); track post.id) {
           <article class="group cursor-pointer flex flex-col h-full">
             <div class="overflow-hidden rounded-lg mb-6 aspect-[16/10] bg-slate-100">
-              <img [src]="post.image" alt="Article Thumbnail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" loading="lazy" decoding="async">
+              <img [src]="post.image" alt="Article Thumbnail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" loading="eager" decoding="async">
             </div>
             
             <div class="flex-1 flex flex-col">

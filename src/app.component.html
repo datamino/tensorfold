@@ -8,57 +8,17 @@
   <!-- Navigation -->
   <app-nav-menu class="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none"></app-nav-menu>
 
-  <!-- Main Content: hero loads first; below-the-fold sections load when in viewport -->
+  <!-- Main Content: all sections load while loader spins, so the site is ready when loader hides -->
   <main class="relative z-10 flex flex-col gap-0 pb-0">
     <app-hero></app-hero>
-
-    @defer (on viewport) {
-      <app-services id="services"></app-services>
-    } @placeholder {
-      <section id="services" class="min-h-[60vh] flex items-center justify-center"><div class="w-8 h-8 border-2 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div></section>
-    }
-
-    @defer (on viewport) {
-      <app-case-studies id="casestudies"></app-case-studies>
-    } @placeholder {
-      <section id="casestudies" class="min-h-[60vh] flex items-center justify-center"><div class="w-8 h-8 border-2 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div></section>
-    }
-
-    @defer (on viewport) {
-      <app-tech-stack></app-tech-stack>
-    } @placeholder {
-      <section class="min-h-[40vh] flex items-center justify-center"><div class="w-8 h-8 border-2 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div></section>
-    }
-
-    @defer (on viewport) {
-      <app-research-lab id="research"></app-research-lab>
-    } @placeholder {
-      <section id="research" class="min-h-[80vh] flex items-center justify-center"><div class="w-8 h-8 border-2 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div></section>
-    }
-
-    @defer (on viewport) {
-      <app-careers id="careers"></app-careers>
-    } @placeholder {
-      <section id="careers" class="min-h-[50vh] flex items-center justify-center"><div class="w-8 h-8 border-2 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div></section>
-    }
-
-    @defer (on viewport) {
-      <app-blog id="insights"></app-blog>
-    } @placeholder {
-      <section id="insights" class="min-h-[50vh] flex items-center justify-center"><div class="w-8 h-8 border-2 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div></section>
-    }
-
-    @defer (on viewport) {
-      <app-about id="about"></app-about>
-    } @placeholder {
-      <section id="about" class="min-h-[40vh] flex items-center justify-center"><div class="w-8 h-8 border-2 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div></section>
-    }
-
-    @defer (on viewport) {
-      <app-contact id="contact"></app-contact>
-    } @placeholder {
-      <section id="contact" class="min-h-[50vh] flex items-center justify-center"><div class="w-8 h-8 border-2 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div></section>
-    }
+    <app-services id="services"></app-services>
+    <app-case-studies id="casestudies"></app-case-studies>
+    <app-tech-stack></app-tech-stack>
+    <app-research-lab id="research"></app-research-lab>
+    <app-careers id="careers"></app-careers>
+    <app-blog id="insights"></app-blog>
+    <app-about id="about"></app-about>
+    <app-contact id="contact"></app-contact>
   </main>
   
   <app-footer></app-footer>

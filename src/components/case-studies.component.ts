@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
               <img [src]="study.image" 
                    alt="Case Study Visualization" 
                    class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0" 
-                   loading="lazy"
+                   loading="eager"
                    decoding="async">
               
               <!-- Floating Metric Overlay -->
