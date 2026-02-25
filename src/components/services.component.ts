@@ -12,13 +12,13 @@ import { isPlatformBrowser } from '@angular/common';
         <!-- Sticky Header -->
         <div class="md:w-1/3">
           <div class="sticky top-32">
-            <h2 class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4">Capabilities</h2>
+            <h2 class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4">Our Services</h2>
             <h3 class="text-3xl md:text-4xl font-light text-slate-800 mb-6">
               Fold intelligence into <br/>
               <span class="italic font-serif text-slate-400">every process.</span>
             </h3>
             <p class="text-slate-500 font-light leading-relaxed">
-              We move beyond simple automation. We build adaptive neural architectures that learn, optimize, and scale autonomously.
+             We build the intelligence infrastructure that enables enterprises to operate faster, decide smarter, and scale with confidence.
             </p>
           </div>
         </div>
@@ -66,21 +66,21 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class ServicesComponent implements AfterViewInit, OnDestroy {
   @ViewChildren('serviceItem') serviceItems!: QueryList<ElementRef>;
-  
+
   hoveredService = signal<number | null>(null);
   activeService = signal<number | null>(null);
 
   services = signal([
-    { id: 1, title: 'Custom AI Systems', desc: 'Bespoke neural networks designed for your specific enterprise data topology.' },
-    { id: 2, title: 'ML Model Engineering', desc: 'From fine-tuning LLMs to building predictive regressors from scratch.' },
-    { id: 3, title: 'Intelligent Automation', desc: 'Self-healing pipelines that manage complex workflows without human intervention.' },
-    { id: 4, title: 'Data Intelligence', desc: 'Turning unstructured data lakes into structured, actionable knowledge graphs.' },
-    { id: 5, title: 'Cognitive Interfaces', desc: 'Next-gen UI/UX powered by predictive user intent modeling.' }
+    { id: 1, title: 'AI Strategy & Systems Architecture', desc: 'Strategic design of enterprise AI architecture aligned with long-term business objectives.' },
+    { id: 2, title: 'Machine Learning & Data Science', desc: 'High-performance predictive models and advanced analytics engineered for competitive advantage.' },
+    { id: 3, title: 'Agentic Systems & Applied GenAI', desc: 'Design and deployment of autonomous AI agents, RAG Systems, and generative AI applications that execute complex workflows with contextual awareness.' },
+    { id: 4, title: 'MLOps & LLMOps Engineering', desc: 'Production-grade lifecycle engineering for machine learning and generative AI systems, enabling scalable deployment, observability, continuous optimization, and resilient performance.' },
+    { id: 5, title: 'Data Engineering & Intelligence Platforms', desc: 'Modern data architectures powering RAG systems, real-time analytics, and unified intelligence layers across structured and unstructured environments.' }
   ]);
 
   private observer: IntersectionObserver | undefined;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
