@@ -80,69 +80,75 @@ export class CaseStudiesComponent {
   studies = signal([
     {
       id: 1,
-      title: 'Autonomous Logistics Grid',
-      sector: 'Global Supply Chain',
-      description: 'Replacing static routing tables with a liquid neural network that adapts to weather, traffic, and demand in real-time, reducing delivery latency by 40%.',
-      image: 'https://picsum.photos/seed/tensor1/800/600',
-      metricValue: '+214%',
-      metricLabel: 'Efficiency Gain',
-      timeline: '8 Months',
-      stack: 'PyTorch / Kafka / Edge TPU'
+      title: 'RevOps Intelligence Platform',
+      sector: 'B2B SaaS / Revenue Operations',
+      description: 'A multi-agent AI system combining RAG pipelines, predictive lead scoring, and campaign intelligence to automate acquisition and retention workflows, improving operational efficiency by over 80%.',
+      image: 'https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      metricValue: '+80%',
+      metricLabel: 'Operational Efficiency',
+      timeline: '8–10 Months',
+      stack: 'LangChain / Azure / FastAPI'
     },
     {
       id: 2,
-      title: 'FinTech Predictive Core',
-      sector: 'High Frequency Trading',
-      description: 'A transformer-based model processing unstructured news sentiment and market signals to predict micro-volatility events milliseconds before they occur.',
-      image: 'https://picsum.photos/seed/tensor2/800/600',
-      metricValue: '$4.2B',
-      metricLabel: 'Volume Processed',
-      timeline: '12 Months',
-      stack: 'JAX / Rust / FPGA'
+      title: 'Hybrid LLM-to-SQL Intelligence Platform',
+      sector: 'Enterprise Data & Analytics',
+      description: 'A hybrid retrieval and structured-query intelligence system enabling natural language interaction with enterprise data warehouses, achieving 95% query accuracy while maintaining secure, low-latency execution.',
+      image: 'https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      metricValue: '95%',
+      metricLabel: 'Query Accuracy',
+      timeline: '2 Months',
+      stack: 'BigQuery / Vertex AI / OpenAI'
     },
     {
-      id: 1,
-      title: 'Autonomous Logistics Grid',
-      sector: 'Global Supply Chain',
-      description: 'Replacing static routing tables with a liquid neural network that adapts to weather, traffic, and demand in real-time, reducing delivery latency by 40%.',
-      image: 'https://picsum.photos/seed/tensor1/800/600',
-      metricValue: '+214%',
-      metricLabel: 'Efficiency Gain',
+      id: 3,
+      title: 'ATLAS Hybrid Intelligence Engine',
+      sector: 'Knowledge Graph & Retrieval AI',
+      description: 'A production-grade hybrid retrieval system combining knowledge graphs (Neo4j) and vector search (Qdrant) with multi-agent planning, multi-hop reasoning, and streaming LLM synthesis for grounded enterprise intelligence.',
+      image: 'https://images.unsplash.com/photo-1674027444454-97b822a997b6?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      metricValue: 'Hybrid',
+      metricLabel: 'Knowledge Graph + Vector',
+      timeline: '2–4 Months',
+      stack: 'Neo4j / Qdrant / LangChain'
+    },
+    {
+
+      id: 4,
+      title: 'Arabic Speech Intelligence Engine',
+      sector: 'Multilingual AI Systems',
+      description: 'Training a dialect-aware speech recognition model on 5,000+ hours of Arabic audio, delivering significant improvements in transcription precision and real-world deployment performance.',
+      image: 'https://images.unsplash.com/photo-1648126506800-a7b1412fcadf?q=80&w=876&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      metricValue: '5,000+',
+      metricLabel: 'Training Hours',
+      timeline: '6 Months',
+      stack: 'Whisper / Pytorch / Distributed Training'
+
+    },
+    {
+
+      id: 5,
+      title: 'Legal Intelligence Engine',
+      sector: 'Enterprise Document AI',
+      description: 'Transforming unstructured legal contracts into structured intelligence through advanced NLP parsing and clause extraction, enabling automated compliance and risk analysis.',
+      image: 'https://images.unsplash.com/photo-1617203443952-6d2619f7ff4e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      metricValue: '94%',
+      metricLabel: 'Extraction Accuracy',
+      timeline: '3 Months',
+      stack: 'BERT / Elasticsearch / Python'
+
+    },
+    {
+
+      id: 6,
+      title: 'Adcertify Automobiles AI',
+      sector: 'Automotive Data & Analytics',
+      description: 'A large-scale data engineering system processing millions of daily vehicle sales records across the United States, with automated ETL pipelines and real-time dashboards enabling dealers to benchmark pricing, inventory trends, and regional performance.',
+      image: 'https://images.unsplash.com/photo-1608341089966-92c09e62214f?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      metricValue: '15+',
+      metricLabel: 'Millions of Records',
       timeline: '8 Months',
-      stack: 'PyTorch / Kafka / Edge TPU'
-    },
-    {
-      id: 2,
-      title: 'FinTech Predictive Core',
-      sector: 'High Frequency Trading',
-      description: 'A transformer-based model processing unstructured news sentiment and market signals to predict micro-volatility events milliseconds before they occur.',
-      image: 'https://picsum.photos/seed/tensor2/800/600',
-      metricValue: '$4.2B',
-      metricLabel: 'Volume Processed',
-      timeline: '12 Months',
-      stack: 'JAX / Rust / FPGA'
-    },
-    {
-      id: 1,
-      title: 'Autonomous Logistics Grid',
-      sector: 'Global Supply Chain',
-      description: 'Replacing static routing tables with a liquid neural network that adapts to weather, traffic, and demand in real-time, reducing delivery latency by 40%.',
-      image: 'https://picsum.photos/seed/tensor1/800/600',
-      metricValue: '+214%',
-      metricLabel: 'Efficiency Gain',
-      timeline: '8 Months',
-      stack: 'PyTorch / Kafka / Edge TPU'
-    },
-    {
-      id: 2,
-      title: 'FinTech Predictive Core',
-      sector: 'High Frequency Trading',
-      description: 'A transformer-based model processing unstructured news sentiment and market signals to predict micro-volatility events milliseconds before they occur.',
-      image: 'https://picsum.photos/seed/tensor2/800/600',
-      metricValue: '$4.2B',
-      metricLabel: 'Volume Processed',
-      timeline: '12 Months',
-      stack: 'JAX / Rust / FPGA'
+      stack: 'Python / ETL Pipelines / SQL '
+
     }
   ]);
 }
