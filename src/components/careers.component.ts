@@ -34,7 +34,11 @@ A high-performance unit of AI architects, ML engineers, and data specialists bui
               </div>
               
               <div class="mt-6 md:mt-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-[-10px] group-hover:translate-x-0">
-                <span class="text-sm font-bold text-cyan-400">View Profile &rarr;</span>
+                @if (job.link) {
+                  <a [href]="job.link" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-cyan-400 hover:text-cyan-300 z-10 relative">View Profile &rarr;</a>
+                } @else {
+                  <span class="text-sm font-bold text-cyan-400">View Profile &rarr;</span>
+                }
               </div>
             </div>
           }
@@ -45,11 +49,11 @@ A high-performance unit of AI architects, ML engineers, and data specialists bui
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CareersComponent {
-  jobs = signal([
-    { id: 1, title: 'Ahsan Aftab', location: 'Founder & CEO | Chief AI Architect' },
-    { id: 2, title: 'Tazmeen Afroz', location: 'Full Stack AI Engineer' },
-    { id: 3, title: 'Mubasher Shahzad', location: 'ML Engineer' },
-    { id: 4, title: 'Marvan Shahid', location: 'Product Designer' },
-    { id: 5, title: 'Tayyab Riaz', location: 'Data Scientist' }
+  jobs = signal<any>([
+    { id: 1, title: 'Ahsan Aftab', location: 'Founder & CEO | Chief AI Architect', link: 'https://www.linkedin.com/in/ahsan-aftab-a49772176/' },
+    { id: 2, title: 'Tazmeen Afroz', location: 'Full Stack AI Engineer', link: 'https://www.linkedin.com/in/tazmeen-afroz/' },
+    { id: 3, title: 'Mubasher Shahzad', location: 'ML Engineer', link: 'https://www.linkedin.com/in/mubasher-shahzad-64911b181/' },
+    { id: 4, title: 'Marvan Shahid', location: 'Product Designer', link: 'https://www.linkedin.com/in/marvan-shahid-534aa4319/' },
+    { id: 5, title: 'Tayyab Riaz', location: 'Data Scientist', link: 'https://www.linkedin.com/in/datamino/' }
   ]);
 }
