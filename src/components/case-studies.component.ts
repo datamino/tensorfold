@@ -99,6 +99,50 @@ export class CaseStudiesComponent {
       metricLabel: 'Volume Processed',
       timeline: '12 Months',
       stack: 'JAX / Rust / FPGA'
+    },
+    {
+      id: 1,
+      title: 'Autonomous Logistics Grid',
+      sector: 'Global Supply Chain',
+      description: 'Replacing static routing tables with a liquid neural network that adapts to weather, traffic, and demand in real-time, reducing delivery latency by 40%.',
+      image: 'https://picsum.photos/seed/tensor1/800/600',
+      metricValue: '+214%',
+      metricLabel: 'Efficiency Gain',
+      timeline: '8 Months',
+      stack: 'PyTorch / Kafka / Edge TPU'
+    },
+    {
+      id: 2,
+      title: 'FinTech Predictive Core',
+      sector: 'High Frequency Trading',
+      description: 'A transformer-based model processing unstructured news sentiment and market signals to predict micro-volatility events milliseconds before they occur.',
+      image: 'https://picsum.photos/seed/tensor2/800/600',
+      metricValue: '$4.2B',
+      metricLabel: 'Volume Processed',
+      timeline: '12 Months',
+      stack: 'JAX / Rust / FPGA'
+    },
+    {
+      id: 1,
+      title: 'Autonomous Logistics Grid',
+      sector: 'Global Supply Chain',
+      description: 'Replacing static routing tables with a liquid neural network that adapts to weather, traffic, and demand in real-time, reducing delivery latency by 40%.',
+      image: 'https://picsum.photos/seed/tensor1/800/600',
+      metricValue: '+214%',
+      metricLabel: 'Efficiency Gain',
+      timeline: '8 Months',
+      stack: 'PyTorch / Kafka / Edge TPU'
+    },
+    {
+      id: 2,
+      title: 'FinTech Predictive Core',
+      sector: 'High Frequency Trading',
+      description: 'A transformer-based model processing unstructured news sentiment and market signals to predict micro-volatility events milliseconds before they occur.',
+      image: 'https://picsum.photos/seed/tensor2/800/600',
+      metricValue: '$4.2B',
+      metricLabel: 'Volume Processed',
+      timeline: '12 Months',
+      stack: 'JAX / Rust / FPGA'
     }
   ]);
 }

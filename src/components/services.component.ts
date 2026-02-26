@@ -71,10 +71,10 @@ export class ServicesComponent implements AfterViewInit, OnDestroy {
   activeService = signal<number | null>(null);
 
   services = signal([
-    { id: 1, title: 'AI Strategy & Systems Architecture', desc: 'Strategic design of enterprise AI architecture aligned with long-term business objectives.' },
-    { id: 2, title: 'Machine Learning & Data Science', desc: 'High-performance predictive models and advanced analytics engineered for competitive advantage.' },
-    { id: 3, title: 'Agentic Systems & Applied GenAI', desc: 'Design and deployment of autonomous AI agents, RAG Systems, and generative AI applications that execute complex workflows with contextual awareness.' },
-    { id: 4, title: 'MLOps & LLMOps Engineering', desc: 'Production-grade lifecycle engineering for machine learning and generative AI systems, enabling scalable deployment, observability, continuous optimization, and resilient performance.' },
+    { id: 1, title: 'Agentic Systems & Applied GenAI', desc: 'Design and deployment of autonomous AI agents, RAG Systems, and generative AI applications that execute complex workflows with contextual awareness.' },
+    { id: 2, title: 'MLOps & LLMOps Engineering', desc: 'Production-grade lifecycle engineering for machine learning and generative AI systems, enabling scalable deployment, observability, continuous optimization, and resilient performance.' },
+    { id: 3, title: 'Machine Learning & Data Science', desc: 'High-performance predictive models and advanced analytics engineered for competitive advantage.' },
+    { id: 4, title: 'AI Strategy & Systems Architecture', desc: 'Strategic design of enterprise AI architecture aligned with long-term business objectives.' },
     { id: 5, title: 'Data Engineering & Intelligence Platforms', desc: 'Modern data architectures powering RAG systems, real-time analytics, and unified intelligence layers across structured and unstructured environments.' }
   ]);
 

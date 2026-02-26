@@ -50,15 +50,15 @@ export class NavMenuComponent implements OnInit, OnDestroy {
     { label: 'Services', href: '#services' },
     { label: 'Case Studies', href: '#casestudies' },
     { label: 'Research', href: '#research' },
-    { label: 'Careers', href: '#careers' },
-    { label: 'Insights', href: '#insights' },
-    { label: 'About', href: '#about' }
+    { label: 'Team', href: '#careers' },
+    { label: 'Blog', href: '#insights' },
+    { label: 'About', href: '#careers' }
   ]);
 
   activeSection = signal<string>('');
   private scrollListener: any;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -96,7 +96,7 @@ export class NavMenuComponent implements OnInit, OnDestroy {
     for (const item of this.menuItems()) {
       const targetId = item.href.substring(1);
       const element = document.getElementById(targetId);
-      
+
       if (element) {
         const offsetTop = element.offsetTop;
         const offsetHeight = element.offsetHeight;
