@@ -1,11 +1,12 @@
 
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   template: `
     <footer class="relative bg-slate-900 pt-24 pb-0 overflow-hidden border-t border-slate-800">
       
@@ -16,7 +17,7 @@ import { CommonModule } from '@angular/common';
         <div class="md:col-span-4 flex flex-col items-start">
           <div class="mb-8 flex items-center gap-2">
              <span class="w-3 h-3 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.8)]"></span>
-             <span class="font-bold tracking-tight text-white text-xl">TensorFold</span>
+             <a routerLink="/" class="font-bold tracking-tight text-white text-xl hover:text-cyan-400 transition-colors">TensorFold</a>
           </div>
           <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-sm">
             We engineer the neural architectures that power the next generation of intelligent enterprise.
@@ -45,8 +46,8 @@ import { CommonModule } from '@angular/common';
         <div class="md:col-span-2">
           <h4 class="font-mono text-xs uppercase tracking-widest text-cyan-400 mb-6 font-bold">Platform</h4>
           <ul class="space-y-4">
-            @for (link of platformLinks(); track link) {
-              <li><a href="#" class="text-slate-300 hover:text-white transition-colors text-sm font-light tracking-wide">{{link}}</a></li>
+            @for (link of platformLinks(); track link.label) {
+              <li><a [routerLink]="link.route" class="text-slate-300 hover:text-white transition-colors text-sm font-light tracking-wide">{{link.label}}</a></li>
             }
           </ul>
         </div>
@@ -55,8 +56,8 @@ import { CommonModule } from '@angular/common';
         <div class="md:col-span-2">
           <h4 class="font-mono text-xs uppercase tracking-widest text-cyan-400 mb-6 font-bold">Company</h4>
           <ul class="space-y-4">
-            @for (link of companyLinks(); track link) {
-              <li><a href="#" class="text-slate-300 hover:text-white transition-colors text-sm font-light tracking-wide">{{link}}</a></li>
+            @for (link of companyLinks(); track link.label) {
+              <li><a [routerLink]="link.route" class="text-slate-300 hover:text-white transition-colors text-sm font-light tracking-wide">{{link.label}}</a></li>
             }
           </ul>
         </div>
@@ -98,7 +99,7 @@ import { CommonModule } from '@angular/common';
           <div class="flex gap-8 text-xs text-slate-500">
             <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+            <a routerLink="/" class="hover:text-white transition-colors">Sitemap</a>
           </div>
         </div>
       </div>
@@ -108,6 +109,16 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
-  platformLinks = signal(['Custom AI Systems', 'Neural Architectures', 'Data Intelligence', 'Edge Inference', 'Security']);
-  companyLinks = signal(['About', 'Research Labs', 'Careers', 'Press', 'Contact']);
+  platformLinks = signal([
+    { label: 'Services', route: '/services' },
+    { label: 'Case Studies', route: '/case-studies' },
+    { label: 'Research', route: '/research' },
+    { label: 'Blog', route: '/blog' }
+  ]);
+  
+  companyLinks = signal([
+    { label: 'About', route: '/about' },
+    { label: 'Team', route: '/team' },
+    { label: 'Contact', route: '/contact' }
+  ]);
 }
